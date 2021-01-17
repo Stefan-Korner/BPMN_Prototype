@@ -1,0 +1,93 @@
+swagger: "2.0"
+info:
+  description: "Tests the REST API of example14"
+  title: "example16_test"
+  version: "v1"
+host: "192.168.0.101:8080"
+schemes:
+  - http
+basePath: /
+paths:
+  /engine-rest/process-definition/key/{id}/start:
+    post:
+      summary: "Start a new BPMN process"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of the BPMN process"
+        required: true
+        type: "string"
+      - name: "body"
+        in: "body"
+        description: "BPMN process arguments"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            variables:
+              type: "object"
+              properties:
+                aVariable:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                      example: "aStringValue"
+                    type:
+                      type: "string"
+                      example: "String"
+                anotherVariable:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "boolean"
+                      example: true
+                    type:
+                      type: "string"
+                      example: "Boolean"
+            businessKey:
+              type: "string"
+              example: "myBusinessKey"
+          xml:
+            name: "Dummy"
+      responses:
+        "200":
+          description: "Success response"
+          schema:
+            type: "object"
+            properties:
+              links:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    method:
+                      type: "string"
+                      example: "GET"
+                    href:
+                      type: "string"
+                      example: "http://192.168.0.101:8080/engine-rest/process-instance/f1d02e2f-55a1-11eb-9075-62076955ac29"
+                    rel:
+                      type: "string"
+                      example: "self"
+              id:
+                type: "string"
+                example: "f1d02e2f-55a1-11eb-9075-62076955ac29"
+              definitionId:
+                type: "string"
+                example: "demo_process_id:1:20e8eda2-559b-11eb-9075-62076955ac29"
+              businessKey:
+                type: "string"
+                example: null
+              caseInstanceIdcaseInstanceId:
+                type: "string"
+                example: null
+              ended:
+                type: "boolean"
+                example: true
+              suspended:
+                type: "boolean"
+                example: false
+              tentantId:
+                type: "string"
+                example: null

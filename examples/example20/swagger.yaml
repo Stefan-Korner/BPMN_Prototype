@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Tests the REST API of example14"
+  description: "Tests the REST API of example20"
   title: "example20_test"
   version: "v1"
 host: "192.168.0.101:8080"

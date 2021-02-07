@@ -112,6 +112,21 @@ paths:
                 role:
                   type: "string"
                   example: "burglar"
+                _links:
+                  type: "object"
+                  properties:
+                    self:
+                      type: "object"
+                      properties:
+                        href:
+                          type: "string"
+                          example: "http://192.168.0.101:8080/employees/1"
+                    employees:
+                      type: "object"
+                      properties:
+                        href:
+                          type: "string"
+                          example: "http://192.168.0.101:8080/employees"
     post:
       summary: "Add a new employee"
       parameters:
@@ -175,6 +190,21 @@ paths:
               role:
                 type: "string"
                 example: "burglar"
+              _links:
+                type: "object"
+                properties:
+                  self:
+                    type: "object"
+                    properties:
+                      href:
+                        type: "string"
+                        example: "http://192.168.0.101:8080/employees/1"
+                  employees:
+                    type: "object"
+                    properties:
+                      href:
+                        type: "string"
+                        example: "http://192.168.0.101:8080/employees"
     put:
       summary: "Update an existing employee"
       parameters:
